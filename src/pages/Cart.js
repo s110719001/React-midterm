@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Layout } from "antd";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../store/index";
@@ -10,6 +10,7 @@ import AppHeader from "../components/Header";
 const { Header, Content, Footer } = Layout;
 
 export default function Cart(){
+    const [count, setCount] = useState(0);
     const  { dispatch, state:{cartItems}} = useContext(StoreContext)
     useEffect(()=>{
         Cookie.set("cartItems", JSON.stringify(cartItems));
@@ -48,7 +49,7 @@ export default function Cart(){
                             <div className="cart-item-qty bg-white">x 1</div>
                         </div>
                         <div className="cart-btn">
-                            <Button onClick={() => cartItemRemove(dispatch, item.id)} className="cart-remove-btn bg-light-red text-white">
+                            <Button onClick={() => {cartItemRemove(dispatch, item.id)}} className="cart-remove-btn bg-light-red text-white">
                                 從購物車刪除
                             </Button>
                             <Button className="cart-buy-btn bg-main text-white">
@@ -58,6 +59,7 @@ export default function Cart(){
                     </div>
                     
                 ))}
+                <div></div>
             </Content>
             <Footer className="layout-footer">
                 <AppFooter></AppFooter>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "antd";
 
 export default function ProductDetail({product}){
+    
     return(
         <div className="product">
             <div className="product-intro text-color-main">
@@ -17,7 +18,7 @@ export default function ProductDetail({product}){
                     <Button className="product-addtocart-btn bg-main text-white">加入購物車</Button>
                 </div>
             </div>
-            <div className="product-phone">
+            <div className="product-phone-block-one">
                 <div className="product-phone-block">課程介紹</div>
                 <div className="product-phone-bar"></div>
             </div>
@@ -39,13 +40,21 @@ export default function ProductDetail({product}){
                 ))}
                 
             </div>
-            <div className="product-phone">
+            <div className="product-phone-block-two">
                 <div className="product-phone-block">內容試閱</div>
                 <div className="product-phone-bar"></div>
+                <img
+                className="block-two-content"
+                src="/image/products/video.png"
+                />
             </div>
-            <div className="product-phone">
+            <div className="product-phone-block-three">
                 <div className="product-phone-block">Q&A</div>
                 <div className="product-phone-bar"></div>
+                <img
+                className="block-three-content"
+                src="/image/products/q&a.png"
+                />
             </div>
         </div>
     )

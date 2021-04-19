@@ -5,9 +5,16 @@ export default function Header(){
     return(
         <div className="header bg-white">
             <div className="header-btn-left">
-                <Button className="header-btn header-btn-home text-color-main">
-                    <Link to="/">Home</Link>
-                </Button>
+                <Link to="/">
+                    <Button className="header-btn header-btn-home text-color-main">
+                        <img
+                        className="header-logo"
+                        src="/image/logo.png"
+                        />
+                        <div className="header-logo-text">上課趣</div>
+                    </Button>
+                </Link>
+                
                 <Button className="header-btn header-btn-burger text-color-main">                
                     <img
                     className="header-btn-icon"

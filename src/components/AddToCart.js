@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Button, notification } from "antd"
 import { StoreContext } from "../store"
 import { cartItemAdd, CartItemAdd, onChangeC } from "../actions";
@@ -6,15 +6,16 @@ import { ADD_CART_ITEM } from "../utils/constants";
 import Cookie from "js-cookie";
 
 export default function AddToCart({ product }) {
+  const [count, setCount] = useState(0);
   const { dispatch, state:{cartItems} } = useContext(StoreContext);
 
   const openNotification = () => {
     notification.open({
       message: '購買通知',
       description:
-        '新增了一堂課至購物車',
+        '新增了'+{count}+'堂課至購物車',
       onClick: () => {
-        console.log(cartItems);
+        console.log(count);
       },
       placement: 'bottomRight'
     });
@@ -27,6 +28,7 @@ export default function AddToCart({ product }) {
     onChangeC(dispatch);
     CartItemAdd(dispatch,product);
     //cartItemAdd(dispatch, product, qty);
+    setCount(count + 1)
   };
 
   useEffect(()=>{

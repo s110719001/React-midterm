@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Card, Button } from "antd";
 import Cart from "../pages/Cart";
@@ -6,6 +7,9 @@ import AddToCart from "./AddToCart";
 const { Meta } = Card;
 
 export default function ProductItem({product}){
+
+    
+
     return(
             <Link className="card" to={`/product/${product.id}`}>
                 <Card 
