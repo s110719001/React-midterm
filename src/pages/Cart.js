@@ -3,14 +3,14 @@ import { Button, Layout } from "antd";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../store/index";
 import { cartItemRemove } from "../actions/index";
-import Cookie from "js-cookie";
+import Cookie, { set } from "js-cookie";
 import AppFooter from "../components/Footer";
 import AppHeader from "../components/Header";
+import count from "../components/AddToCart";
 
 const { Header, Content, Footer } = Layout;
 
 export default function Cart(){
-    const [count, setCount] = useState(0);
     const  { dispatch, state:{cartItems}} = useContext(StoreContext)
     useEffect(()=>{
         Cookie.set("cartItems", JSON.stringify(cartItems));
@@ -59,7 +59,6 @@ export default function Cart(){
                     </div>
                     
                 ))}
-                <div></div>
             </Content>
             <Footer className="layout-footer">
                 <AppFooter></AppFooter>

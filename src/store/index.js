@@ -52,7 +52,6 @@ function reducer(state, action){
 export function StoreProvider(props){
     const [state,dispatch] = useReducer(reducer, initialState);
     const value = {state, dispatch};
-
     return(
         <StoreContext.Provider value={value}>
             {props.children}

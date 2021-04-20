@@ -5,22 +5,23 @@ import { cartItemAdd, CartItemAdd, onChangeC } from "../actions";
 import { ADD_CART_ITEM } from "../utils/constants";
 import Cookie from "js-cookie";
 
-export default function AddToCart({ product }) {
-  const [count, setCount] = useState(0);
-  const { dispatch, state:{cartItems} } = useContext(StoreContext);
 
+export default function AddToCart({ product }) {  
+  const { dispatch, state:{cartItems} } = useContext(StoreContext);
+  const [count, setCount] = useState(1);
   const openNotification = () => {
     notification.open({
       message: '購買通知',
       description:
-        '新增了'+{count}+'堂課至購物車',
+        '新增了一堂課至購物車\n'+
+        "共"+(cartItems.length+1)+"堂課",
       onClick: () => {
         console.log(count);
+        console.log(cartItems.length);
       },
       placement: 'bottomRight'
     });
   };
-
 
 
   const addToCart = () => {
@@ -28,7 +29,7 @@ export default function AddToCart({ product }) {
     onChangeC(dispatch);
     CartItemAdd(dispatch,product);
     //cartItemAdd(dispatch, product, qty);
-    setCount(count + 1)
+    setCount(20)
   };
 
   useEffect(()=>{
