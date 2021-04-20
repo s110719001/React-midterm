@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Select } from "antd";
+import React, { useState } from 'react';
 
+const { Option } = Select;
 export default function ProductDetail({product}){
-    
+    const [qty , setQty] = useState(1);
     return(
         <div className="product">
             <div className="product-intro text-color-main">
@@ -15,7 +17,17 @@ export default function ProductDetail({product}){
                     <p className="product-price">{product.class_price}</p>
                     <p className="product-bought">{product.class_bought}</p>
                     <p className="product-time">{product.class_time}</p>
+                    <Select style={{marginRight:'12px'}} defaultValue={1}
+                    onChange={val => setQty(val)}>
+                        {[...Array(5).keys()].map((x) =>(
+                            <Option key={x+1} value={x+1}>
+                                {x+1}
+                            </Option>
+                        ))} 
+                    </Select>
+                    <div>{qty}人要上課</div>
                     <Button className="product-addtocart-btn bg-main text-white">加入購物車</Button>
+                    
                 </div>
             </div>
             <div className="product-phone-block-one">

@@ -8,7 +8,6 @@ import Cookie from "js-cookie";
 
 export default function AddToCart({ product }) {  
   const { dispatch, state:{cartItems} } = useContext(StoreContext);
-  const [count, setCount] = useState(1);
   const openNotification = () => {
     notification.open({
       message: '購買通知',
@@ -16,7 +15,6 @@ export default function AddToCart({ product }) {
         '新增了一堂課至購物車\n'+
         "共"+(cartItems.length+1)+"堂課",
       onClick: () => {
-        console.log(count);
         console.log(cartItems.length);
       },
       placement: 'bottomRight'
@@ -29,7 +27,6 @@ export default function AddToCart({ product }) {
     onChangeC(dispatch);
     CartItemAdd(dispatch,product);
     //cartItemAdd(dispatch, product, qty);
-    setCount(20)
   };
 
   useEffect(()=>{

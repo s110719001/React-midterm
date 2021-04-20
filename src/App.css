@@ -432,7 +432,7 @@
 
 }
 .product-time{
-  margin:0 0 13% 0;
+  margin:0 0 8% 0;
 
 }
 .product-addtocart-btn{
@@ -441,6 +441,15 @@
   width:50%;
   height:15%;
   border-radius: 20px;
+}
+.product-phone-block-one{
+  display: none;
+}
+.product-phone-block-two{
+  display: none;
+}
+.product-phone-block-three{
+  display: none;
 }
 .product-phone{
   display: none;
